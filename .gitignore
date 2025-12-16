@@ -1,0 +1,18 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.env
+
+# Node
+node_modules/
+dist/
+
+# Backend generated files
+backend/app/static/output/
+backend/app/static/temp/
+backend/app/static/templates/uploaded_template.png
+
+# OS files
+.DS_Store
+Thumbs.db

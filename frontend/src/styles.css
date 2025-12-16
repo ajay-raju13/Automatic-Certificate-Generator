@@ -1,0 +1,92 @@
+body {
+  font-family: Inter, Arial, sans-serif;
+  margin: 12px;
+  color: #111;
+}
+.app h1 {
+  margin-bottom: 12px;
+}
+.editor-root {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.toolbar {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.btn {
+  background: #1976d2;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.editor-area {
+  display: flex;
+  gap: 12px;
+}
+.left-panel {
+  flex: 1 1 60%;
+  border: 1px solid #ddd;
+  padding: 8px;
+  overflow: auto;
+}
+.canvas-wrap {
+  position: relative;
+  display: inline-block;
+}
+.canvas-wrap img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+}
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+}
+.overlay > * {
+  pointer-events: auto;
+}
+.right-panel {
+  width: 360px;
+  border: 1px solid #eee;
+  padding: 8px;
+  background: #fafafa;
+}
+.ph-item {
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 6px;
+}
+.ph-item input[type="text"],
+.ph-item input[type="number"],
+.ph-item select {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 6px;
+}
+.small-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin-bottom: 6px;
+}
+.muted {
+  color: #666;
+  font-size: 12px;
+  margin-left: 6px;
+}
+.no-template {
+  width: 800px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #777;
+  border: 1px dashed #ccc;
+}
