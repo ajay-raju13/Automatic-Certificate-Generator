@@ -50,14 +50,19 @@ export default function CertificateEditor() {
     loadTemplate();
   }, []);
 
-  async function loadTemplate() {
-    try {
-      const res = await api.get("/template");
-      setTemplateUrl(res.data?.url || null);
-    } catch (err) {
-      console.error("Template load error", err);
+async function loadTemplate() {
+  try {
+    const res = await api.get("/template");
+    if (res.data?.url) {
+      setTemplateUrl(`${api.defaults.baseURL}${res.data.url}`);
+    } else {
+      setTemplateUrl(null);
     }
+  } catch (err) {
+    console.error("Template load error", err);
   }
+}
+
 
   useEffect(() => {
     if (!templateUrl) return;
