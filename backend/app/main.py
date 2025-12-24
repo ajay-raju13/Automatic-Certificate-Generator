@@ -57,7 +57,8 @@ def get_template():
     tpl = CURRENT.get("template_path")
     if not tpl or not tpl.exists():
         return {"url": None}
-    return {"url": f"http://127.0.0.1:8000/static/templates/{tpl.name}"}
+    return {"url": f"/static/templates/{tpl.name}"}
+
 
 @app.post("/upload-excel")
 async def upload_excel(file: UploadFile = File(...)):
