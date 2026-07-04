@@ -1,18 +1,49 @@
-# Python
-.venv/
+# --- Python ---
 __pycache__/
-*.pyc
-.env
+*.py[cod]
+*.pyd
+*.so
+.Python
+.venv/
+venv/
+env/
+ENV/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
 
-# Node
+# --- Node / Vite ---
 node_modules/
 dist/
+dist-ssr/
+coverage/
+.vite/
+*.tsbuildinfo
 
-# Backend generated files
-backend/app/static/output/
-backend/app/static/temp/
+# --- Environment files ---
+.env
+.env.*
+!.env.example
+
+# --- Backend runtime/generated files ---
+backend/app/static/output/*
+!backend/app/static/output/.gitkeep
+backend/app/static/temp/*
+!backend/app/static/temp/.gitkeep
 backend/app/static/templates/uploaded_template.png
 
-# OS files
+# --- Frontend runtime/generated files ---
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# --- Editor / OS ---
+.vscode/
+!.vscode/extensions.json
+.idea/
 .DS_Store
 Thumbs.db
+*.swp
+*.swo

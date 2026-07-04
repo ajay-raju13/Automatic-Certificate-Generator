@@ -1,0 +1,427 @@
+/* Global Editor Styles */
+* {
+    box-sizing: border-box;
+}
+
+.editor-root {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    padding: 2rem;
+    color: #1f2937;
+}
+
+.app-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.app-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #111827;
+    letter-spacing: -0.025em;
+    margin: 0;
+    background: linear-gradient(to right, #4f46e5, #06b6d4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.app-subtitle {
+    color: #6b7280;
+    margin-top: 0.5rem;
+    font-size: 1rem;
+}
+
+/* Toolbar & Actions */
+.toolbar-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    /* Allow wrapping to multiple rows */
+    gap: 0.75rem;
+    align-items: center;
+    justify-content: flex-start;
+    /* Align left */
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+/* Scrollbar hiding for cleaner look if desired, or custom scrollbar */
+.toolbar-card::-webkit-scrollbar {
+    height: 6px;
+}
+
+.toolbar-card::-webkit-scrollbar-thumb {
+    background: #e5e7eb;
+    border-radius: 3px;
+}
+
+.btn-modern {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.625rem 1rem;
+    /* Slightly smaller padding to fit more */
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    gap: 0.5rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+    /* Prevent buttons from squishing */
+}
+
+.btn-primary {
+    background-color: #4f46e5;
+    color: white;
+    box-shadow: 0 2px 5px rgba(79, 70, 229, 0.3);
+}
+
+.btn-primary:hover:not(:disabled) {
+    background-color: #4338ca;
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background-color: white;
+    border-color: #e5e7eb;
+    color: #374151;
+}
+
+.btn-secondary:hover:not(:disabled) {
+    background-color: #f9fafb;
+    border-color: #d1d5db;
+}
+
+.btn-danger {
+    background-color: #fee2e2;
+    color: #991b1b;
+    border-color: #fecaca;
+}
+
+.btn-danger:hover:not(:disabled) {
+    background-color: #fecaca;
+}
+
+.btn-success {
+    background-color: #10b981;
+    color: white;
+    box-shadow: 0 2px 5px rgba(16, 185, 129, 0.3);
+}
+
+.btn-success:hover:not(:disabled) {
+    background-color: #059669;
+    transform: translateY(-1px);
+}
+
+.btn-modern:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Main Editor Area */
+.editor-area {
+    display: grid;
+    /* User requested wider canvas: 75% editor, 25% configuration */
+    grid-template-columns: 75% 25%;
+    gap: 1rem;
+    align-items: stretch;
+    /* Stretch panels to match height */
+    flex: 1;
+    /* allowing it to grow */
+}
+
+.canvas-panel {
+    background: white;
+    border-radius: 12px;
+    /* Removed padding for edge-to-edge */
+    padding: 0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    /* Soft shadow */
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    /* Start from top */
+    min-height: 700px;
+    /* Even bigger min-height */
+    overflow: visible;
+    /* Allow it to hold full image height */
+    position: relative;
+}
+
+.properties-panel {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    /* Fix horizontal overflow */
+    overflow-y: auto;
+    height: 100%;
+    /* Fill the grid area */
+    display: flex;
+    flex-direction: column;
+}
+
+.panel-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #f3f4f6;
+}
+
+/* Form Controls */
+.control-group {
+    margin-bottom: 1rem;
+}
+
+.control-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #6b7280;
+    margin-bottom: 0.375rem;
+}
+
+.modern-select,
+.modern-input {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: border-color 0.15s;
+    box-sizing: border-box;
+    /* Ensure padding doesn't increase width */
+}
+
+.modern-select:focus,
+.modern-input:focus {
+    outline: none;
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+/* Placeholder Items in List */
+.ph-item {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    overflow: hidden;
+    /* Prevent internal content from spilling out */
+}
+
+.ph-item:hover {
+    border-color: #d1d5db;
+}
+
+.ph-item.selected {
+    background: #eff6ff;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 1px #6366f1;
+}
+
+/* Walkthrough Overlay */
+.walkthrough-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    pointer-events: none;
+    /* Let clicks pass through except on modal */
+}
+
+.walkthrough-modal {
+    position: fixed;
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    width: 400px;
+    max-width: 90vw;
+    z-index: 10000;
+    pointer-events: auto;
+    transition: all 0.3s ease;
+    /* Centered by default, or positioned via JS */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.highlight-ring {
+    position: absolute;
+    border: 3px solid #4f46e5;
+    border-radius: 8px;
+    box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.6);
+    /* Backdrop trick */
+    z-index: 9998;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.step-indicator {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.step-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #e5e7eb;
+    transition: background 0.3s;
+}
+
+.step-dot.active {
+    background: #4f46e5;
+}
+
+.walkthrough-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #111827;
+}
+
+.walkthrough-desc {
+    color: #6b7280;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+.no-template {
+    color: #9ca3af;
+    font-style: italic;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Gallery adjustments */
+.gallery-section {
+    scroll-margin-top: 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    border: none !important;
+}
+
+#gallery-section {
+    scroll-margin-top: 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    border: none !important;
+}
+
+/* Generic Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.75);
+    /* Darker backdrop */
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.modal-content {
+    background: white;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+    /* Strict constraints for "small" and visible preview */
+    width: 80vw;
+    max-width: 900px;
+    height: 80vh;
+    max-height: 700px;
+
+    overflow: hidden;
+    /* Prevent scrolling */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    animation: slideUp 0.3s ease-out;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 0.5rem;
+}
+
+.modal-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #6b7280;
+    cursor: pointer;
+    padding: 0 0.5rem;
+    transition: color 0.2s;
+}
+
+.modal-close:hover {
+    color: #ef4444;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
